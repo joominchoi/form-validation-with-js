@@ -1,0 +1,1 @@
+(()=>{"use strict";!function(){const t=document.getElementById("content"),e=document.createElement("p");e.textContent="Template",t.append(e)}()})();
