@@ -1,10 +1,9 @@
+import createProjectForm from './form';
+
 function initializeWebsite() {
   const content = document.getElementById('content');
 
-  const title = document.createElement('p');
-  title.textContent = 'Template';
-
-  content.append(title)
+  content.append(createProjectForm());
 }
 
 export default initializeWebsite;

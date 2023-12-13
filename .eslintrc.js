@@ -1,5 +1,3 @@
-import eslintConfigPrettier from "eslint-config-prettier";
-
 module.exports = {
   env: {
     browser: true,
@@ -17,7 +15,6 @@ module.exports = {
       parserOptions: {
         sourceType: 'script',
       },
-      eslintConfigPrettier,
     },
   ],
   parserOptions: {
@@ -25,6 +22,5 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'no-console': 'off',
   },
 };
