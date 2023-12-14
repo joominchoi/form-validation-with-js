@@ -6,11 +6,23 @@ function createProjectForm() {
   emailLabel.htmlFor = 'email';
   emailLabel.textContent = 'Email: ';
   form.appendChild(emailLabel);
+
   const emailInput = document.createElement('input');
   emailInput.type = 'email';
   emailInput.id = 'email';
   emailInput.name = 'name';
+  // emailInput.required = true;
+  emailInput.minLength = 8;
+
+  emailInput.addEventListener('input', () => {
+    validateEmailInput(emailInput);
+  });
+
+  const errorMessage = document.createElement('span');
+  errorMessage.className = 'error';
+  errorMessage.setAttribute('aria-live', 'polite');
   emailLabel.appendChild(emailInput);
+  emailLabel.appendChild(errorMessage);
   form.appendChild(emailLabel);
 
   form.appendChild(document.createElement('br'));
@@ -69,6 +81,24 @@ function createProjectForm() {
   form.appendChild(submitButton);
 
   return form;
+}
+
+function validateEmailInput(emailInput) {
+  const errorMessage = emailInput.parentElement.querySelector('.error');
+  const emailValue = emailInput.value.trim();
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (emailValue === '') {
+    errorMessage.textContent = 'You need to enter an email address.';
+  } else if (!emailRegex.test(emailValue)) {
+    errorMessage.textContent = 'Entered value needs to be an email address.';
+  } else if (emailValue.length < emailInput.minLength) {
+    errorMessage.textContent = `Email should be at least ${emailInput.minLength} characters; you entered ${emailValue.length}.`;
+  } else {
+    errorMessage.textContent = '';
+  }
+
+  errorMessage.className = errorMessage.textContent ? 'error active' : 'error';
 }
 
 export default createProjectForm;

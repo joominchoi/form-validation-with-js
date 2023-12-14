@@ -16,3 +16,4 @@ Building a browser form which collects Email, Country, Zip Code, Password and Pa
 ## Recapping
 
 ## WIP
+- Refactor email validation
