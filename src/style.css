@@ -1,4 +1,10 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+
   font: 1em sans-serif;
   width: 200px;
   padding: 0;
