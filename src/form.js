@@ -4,16 +4,15 @@ function createProjectForm() {
   const form = document.createElement('form');
   form.id = 'form';
 
+  const emailContainer = document.createElement('div');
+  emailContainer.id = 'email-container';
   const emailLabel = document.createElement('label');
   emailLabel.htmlFor = 'email';
   emailLabel.textContent = 'Email: ';
-  form.appendChild(emailLabel);
-
   const emailInput = document.createElement('input');
   emailInput.type = 'email';
   emailInput.id = 'email';
-  emailInput.name = 'name';
-  // emailInput.required = true;
+  emailInput.name = 'email';
   emailInput.minLength = 8;
 
   emailInput.addEventListener('input', () => {
@@ -23,12 +22,13 @@ function createProjectForm() {
   const errorMessage = document.createElement('span');
   errorMessage.className = 'error';
   errorMessage.setAttribute('aria-live', 'polite');
-  emailLabel.appendChild(emailInput);
-  emailLabel.appendChild(errorMessage);
-  form.appendChild(emailLabel);
+  emailContainer.appendChild(emailLabel);
+  emailContainer.appendChild(emailInput);
+  emailContainer.appendChild(errorMessage);
+  form.appendChild(emailContainer);
 
-  form.appendChild(document.createElement('br'));
-
+  const countryContainer = document.createElement('div');
+  countryContainer.id = 'country-container';
   const countryLabel = document.createElement('label');
   countryLabel.htmlFor = 'country';
   countryLabel.textContent = 'Country: ';
@@ -36,11 +36,12 @@ function createProjectForm() {
   countryInput.type = 'text';
   countryInput.id = 'country';
   countryInput.name = 'country';
-  countryLabel.appendChild(countryInput);
-  form.appendChild(countryLabel);
+  countryContainer.appendChild(countryLabel);
+  countryContainer.appendChild(countryInput);
+  form.appendChild(countryContainer);
 
-  form.appendChild(document.createElement('br'));
-
+  const zipContainer = document.createElement('div');
+  zipContainer.id = 'zip-container';
   const zipLabel = document.createElement('label');
   zipLabel.htmlFor = 'zip';
   zipLabel.textContent = 'ZIP Code: ';
@@ -48,11 +49,12 @@ function createProjectForm() {
   zipInput.type = 'text';
   zipInput.id = 'zip';
   zipInput.name = 'zip';
-  zipLabel.appendChild(zipInput);
-  form.appendChild(zipLabel);
+  zipContainer.appendChild(zipLabel);
+  zipContainer.appendChild(zipInput);
+  form.appendChild(zipContainer);
 
-  form.appendChild(document.createElement('br'));
-
+  const passwordContainer = document.createElement('div');
+  passwordContainer.id = 'password-container'
   const passwordLabel = document.createElement('label');
   passwordLabel.htmlFor = 'password';
   passwordLabel.textContent = 'Password: ';
@@ -60,11 +62,12 @@ function createProjectForm() {
   passwordInput.type = 'password';
   passwordInput.id = 'password';
   passwordInput.name = 'password';
-  passwordLabel.appendChild(passwordInput);
-  form.appendChild(passwordLabel);
+  passwordContainer.appendChild(passwordLabel);
+  passwordContainer.appendChild(passwordInput);
+  form.appendChild(passwordContainer);
 
-  form.appendChild(document.createElement('br'));
-
+  const confirmPasswordContainer = document.createElement('div');
+  confirmPasswordContainer.id = 'confirm-password-container';
   const confirmPasswordLabel = document.createElement('label');
   confirmPasswordLabel.htmlFor = 'confirm-password';
   confirmPasswordLabel.textContent = 'Confirm Password: ';
@@ -72,10 +75,9 @@ function createProjectForm() {
   confirmPasswordInput.type = 'password';
   confirmPasswordInput.id = 'confirm-password';
   confirmPasswordInput.name = 'confirm-password';
-  confirmPasswordLabel.appendChild(confirmPasswordInput);
-  form.appendChild(confirmPasswordLabel);
-
-  form.appendChild(document.createElement('br'));
+  confirmPasswordContainer.appendChild(confirmPasswordLabel);
+  confirmPasswordContainer.appendChild(confirmPasswordInput);
+  form.appendChild(confirmPasswordContainer);
 
   const submitButton = document.createElement('button');
   submitButton.type = 'button'; // Set type to button to prevent form submission (for demonstration purposes)
