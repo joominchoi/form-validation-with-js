@@ -54,7 +54,7 @@ function createProjectForm() {
   form.appendChild(zipContainer);
 
   const passwordContainer = document.createElement('div');
-  passwordContainer.id = 'password-container'
+  passwordContainer.id = 'password-container';
   const passwordLabel = document.createElement('label');
   passwordLabel.htmlFor = 'password';
   passwordLabel.textContent = 'Password: ';
