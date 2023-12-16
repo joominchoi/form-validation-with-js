@@ -1,6 +1,7 @@
 import validateCountry from './validateCountry';
 import validateEmail from './validateEmail';
 import displayErrorIfEmpty from './validateForm';
+import validateZIP from './validateZIP';
 
 function createProjectForm() {
   const form = document.createElement('form');
@@ -60,8 +61,17 @@ function createProjectForm() {
   zipInput.type = 'text';
   zipInput.id = 'zip';
   zipInput.name = 'zip';
+
+  zipInput.addEventListener('input', () => {
+    validateZIP(zipInput);
+  });
+
+  const zipErrorMessage = document.createElement('span');
+  zipErrorMessage.className = 'error';
+  zipErrorMessage.setAttribute('aria-live', 'polite');
   zipContainer.appendChild(zipLabel);
   zipContainer.appendChild(zipInput);
+  zipContainer.appendChild(zipErrorMessage);
   form.appendChild(zipContainer);
 
   const passwordContainer = document.createElement('div');
