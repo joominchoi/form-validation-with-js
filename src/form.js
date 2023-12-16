@@ -1,5 +1,6 @@
 import validateCountry from './validateCountry';
 import validateEmail from './validateEmail';
+import displayErrorIfEmpty from './validateForm';
 
 function createProjectForm() {
   const form = document.createElement('form');
@@ -92,6 +93,11 @@ function createProjectForm() {
   const submitButton = document.createElement('button');
   submitButton.type = 'button'; // Set type to button to prevent form submission (for demonstration purposes)
   submitButton.textContent = 'Submit';
+
+  submitButton.addEventListener('click', () => {
+    displayErrorIfEmpty(form);
+  });
+
   form.appendChild(submitButton);
 
   return form;
