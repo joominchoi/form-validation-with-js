@@ -28,6 +28,19 @@ input[type="email"] {
   box-sizing: border-box;
 }
 
+input[type="text"] {
+  appearance: none;
+
+  width: 100%;
+  border: 1px solid #333;
+  margin: 0;
+
+  font-family: inherit;
+  font-size: 90%;
+
+  box-sizing: border-box;
+}
+
 /* This is the style of our error messages */
 .error {
   width: 100%;

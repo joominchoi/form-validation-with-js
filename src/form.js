@@ -1,3 +1,4 @@
+import validateCountry from './validateCountry';
 import validateEmail from './validateEmail';
 
 function createProjectForm() {
@@ -19,12 +20,12 @@ function createProjectForm() {
     validateEmail(emailInput);
   });
 
-  const errorMessage = document.createElement('span');
-  errorMessage.className = 'error';
-  errorMessage.setAttribute('aria-live', 'polite');
+  const emailErrorMessage = document.createElement('span');
+  emailErrorMessage.className = 'error';
+  emailErrorMessage.setAttribute('aria-live', 'polite');
   emailContainer.appendChild(emailLabel);
   emailContainer.appendChild(emailInput);
-  emailContainer.appendChild(errorMessage);
+  emailContainer.appendChild(emailErrorMessage);
   form.appendChild(emailContainer);
 
   const countryContainer = document.createElement('div');
@@ -36,8 +37,17 @@ function createProjectForm() {
   countryInput.type = 'text';
   countryInput.id = 'country';
   countryInput.name = 'country';
+
+  countryInput.addEventListener('input', () => {
+    validateCountry(countryInput);
+  });
+
+  const countryErrorMessage = document.createElement('span');
+  countryErrorMessage.className = 'error';
+  countryErrorMessage.setAttribute('aria-live', 'polite');
   countryContainer.appendChild(countryLabel);
   countryContainer.appendChild(countryInput);
+  countryContainer.appendChild(countryErrorMessage);
   form.appendChild(countryContainer);
 
   const zipContainer = document.createElement('div');
