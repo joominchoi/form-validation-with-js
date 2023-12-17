@@ -105,7 +105,7 @@ function createProjectForm() {
   submitButton.textContent = 'Submit';
 
   submitButton.addEventListener('click', () => {
-    displayErrorIfEmpty(form);
+    displayErrorIfEmpty(emailInput, countryInput, zipInput);
   });
 
   form.appendChild(submitButton);
